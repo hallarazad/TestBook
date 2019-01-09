@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <constant name="struts.devMode" value="true" />
+   
+   
+   <constant name="struts.action.extension" value=","/>
+    
+   
+   <constant name="struts.enable.SlashesInActionNames" value="true"/>
+<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+<constant name="struts.patternMatcher" value="regex"/> 
+    
+   
+   
+   <package name="default" extends="struts-default" namespace="/">
+   	  
+   	  <interceptors>
+      	<interceptor-stack name="default-stack"></interceptor-stack>
+      	<interceptor name="params" class=""></interceptor>
+      </interceptors>
+      
+    <default-action-ref name="timelineAction"></default-action-ref>
+    
+   	<action name="adduser" method="addUser" class="sindhi.quiz.web.actions.AddUserAction">
+   		<result name="success">/login.jsp</result>
+   	</action>
+   	
+   	<action name="arrangeCompetition" method="execute" class="sindhi.quiz.web.actions.ArrangeCompetitionAction">
+   		<result name="success" type="redirectAction">timelineAction</result>
+   	</action>
+   	
+   	<action name="loadFriends" method="execute" class="sindhi.quiz.web.actions.LoadFriendsAction">
+   	</action>
+   	
+   	<action name="friendRequestsSeen" method="friendRequestsSeen" class="sindhi.quiz.web.actions.FriendRequestAction">
+   	</action>
+   	
+   	<action name="acceptRequest" method="acceptRequest" class="sindhi.quiz.web.actions.FriendRequestAction">
+   	</action>
+   	
+   	<action name="proceedTest" method="execute" class="sindhi.quiz.web.actions.LoadQuestionAction">
+   	</action>
+   	
+   	<action name="startTest" method="execute" class="sindhi.quiz.web.actions.StartTestAction">
+   	</action>
+   	
+   	<action name="test" method="execute" class="sindhi.quiz.web.actions.TestAction">
+   		<result>/quiz.jsp</result>
+   		<result name="login" type="redirectAction">login.jsp</result>
+   	</action>
+
+   	<action name="addQuestion" method="addQuestion" class="sindhi.quiz.web.actions.AddQuestionAction">
+   	</action>
+   	
+   	<action name="loadLikeDetails" method="loadLikeDetails" class="sindhi.quiz.web.actions.LoadLikeDetailsAction">
+   	</action>
+   	
+   	<action name="loadLikesCount" method="loadLikesCount" class="sindhi.quiz.web.actions.LoadLikesAction">
+   	</action>
+   	
+   	<action name="loadMoreTimeline" method="loadMoreTimeline" class="sindhi.quiz.web.actions.LoadMoreTimeline">
+   	</action>
+   	
+   	<action name="like" method="like" class="sindhi.quiz.web.actions.LikesAction">
+   	</action>
+   	
+   	<action name="unlike" method="unlike" class="sindhi.quiz.web.actions.LikesAction">
+   	</action>
+   	
+   	<action name="follow" method="follow" class="sindhi.quiz.web.actions.FollowUnfollowAction">
+   	</action>
+   	
+   	<action name="unfollow" method="unfollow" class="sindhi.quiz.web.actions.FollowUnfollowAction">
+   	</action>
+   	
+   	<action name="makeItPublic" method="makeItPublic" class="sindhi.quiz.web.actions.PublicPrivateAction">
+   	</action>
+   	
+   	<action name="makeItPrivate" method="makeItPrivate" class="sindhi.quiz.web.actions.PublicPrivateAction">
+   	</action>
+   	
+   	<action name="logout" method="logout" class="sindhi.quiz.web.actions.LogoutAction">
+   		<result name="success">/login.jsp</result>
+   	</action>
+   	
+   	<action name="login" method="login" class="sindhi.quiz.web.actions.LoginAction">
+   		<result name="success" type="redirectAction">timelineAction</result>
+   		<result name="input">/newlogin.jsp</result>
+   	</action>
+   	
+   	<action name="choose-a-test" method="execute" class="sindhi.quiz.web.actions.ChooseTestAction">
+   		<result name="success" type="chain">rankAction</result>
+   		<result name="login" type="redirectAction">login</result>
+   	</action>
+   	
+   	<action name="finishTest" method="execute" class="sindhi.quiz.web.actions.FinishTestAction">
+   		<result name="success" type="chain">categoriesAction</result>
+   		<result name="home" type="redirectAction">timelineAction</result>
+   		<result name="login" type="redirectAction">login</result>
+   	</action>
+   	
+   	<action name="testResult" method="execute" class="sindhi.quiz.web.actions.ResultAction">
+   		<result name="success" type="chain">categoriesAction</result>
+   	</action>
+   	
+   	<action name="subcategory" method="getTests" class="sindhi.quiz.web.actions.SubcategoryAction">
+   		<result name="success" type="chain">categoriesAction</result>
+   		<result name="login" type="redirectAction">login</result>
+   	</action>
+   	
+   	<action name="category" method="getSubcategories" class="sindhi.quiz.web.actions.CategoryAction">
+   		<result name="success" type="chain">categoriesAction</result>
+   		<result name="login" type="redirectAction">login</result>
+   	</action>
+   	
+   	<action name="timelineAction" method="executeTimeline" class="sindhi.quiz.web.actions.GetTimelineAction">
+   		<result name="success" type="chain">categoriesAction</result>
+   		<result name="login" type="redirectAction">login</result>
+   	</action>
+   	
+   	<action name="{u}" method="execute" class="sindhi.quiz.web.actions.ProfileAction">
+   		<result name="success" type="chain">categoriesAction</result>
+   		<result name="login" type="redirectAction">login</result>
+   	</action>
+   	
+   	<action name="categoriesAction" method="getCategories" class="sindhi.quiz.web.actions.CategoriesAction">
+   		<result name="success" type="chain">rankAction</result>
+   	</action>
+   	
+   	<action name="rankAction" method="executeRank" class="sindhi.quiz.web.actions.RankAction">
+   		<result name="success" type="chain">progressAction</result>
+   	</action>
+   	
+   	<action name="progressAction" method="executeProgress" class="sindhi.quiz.web.actions.ProgressAction">
+   		<result name="timeline">/index.jsp</result>
+   		<result name="profile">/profile.jsp</result>
+   		<result name="category">/subcategories.jsp</result>
+   		<result name="subcategory">/tests.jsp</result>
+   		<result name="result">/result.jsp</result>
+   		<result name="choosetest">/choosetest.jsp</result>
+   	</action>
+   	
+   	
+   	
+   	
+   
+   </package>
+
+</struts>

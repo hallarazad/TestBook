@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+
+SELECT history.history_id, history.total_attempted, history.correct_answers, history.wrong_answers, history.score, history.date_time as history_date_time, history.test_id, history.is_public, (SELECT temp_tests.test_name FROM tests as temp_tests WHERE temp_tests.test_id = history.test_id) as test_name, (SELECT temp_tests.sub_catagory_id FROM tests as temp_tests WHERE temp_tests.test_id = history.test_id) as sub_cat_id, (SELECT temp_sub_catagories.sub_catagory_name FROM sub_catagories as temp_sub_catagories WHERE temp_sub_catagories.sub_catagory_id = sub_cat_id) as sub_catagory_name, (SELECT temp_sub_catagories.catagory_id FROM sub_catagories as temp_sub_catagories WHERE temp_sub_catagories.sub_catagory_id = sub_cat_id) as cat_id, (SELECT temp_catagories.catagory_name FROM catagories as temp_catagories WHERE temp_catagories.catagory_id = cat_id) as catagory_name, history.user_id, (SELECT temp_users.fullname FROM users as temp_users WHERE temp_users.user_id = history.user_id) as fullname, (SELECT temp_users.username FROM users as temp_users WHERE temp_users.user_id = history.user_id) as username, (SELECT temp_users.picurl FROM users as temp_users WHERE temp_users.user_id = history.user_id) as picurl
+
+FROM test_history as history 
+
+WHERE (history.user_id IN (SELECT follower_id FROM followers WHERE user_id = 1)) OR history.user_id = 1 ORDER BY history.date_time DESC LIMIT 10
