@@ -6,10 +6,18 @@ public class DBConnection {
 	
 	
 	
+	// Heroku
 	String connectionUrl = "jdbc:mysql://eu-cdbr-west-02.cleardb.net/heroku_17e7d75201deb87";
 	String unicode = "?useUnicode=yes&characterEncoding=UTF-8&reconnect=true";
 	String dbuser = "bc377c80fc6f77";
 	String dbpwd = "57642e0f";
+	
+	// Local
+	/*
+	 * String connectionUrl = "jdbc:mysql://localhost:3306/testbook"; String unicode
+	 * = "?useUnicode=yes&characterEncoding=UTF-8&reconnect=true"; String dbuser =
+	 * "root"; String dbpwd = "";
+	 */
 	
 	private static DBConnection dbConnection = null;
 	
