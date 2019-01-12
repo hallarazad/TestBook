@@ -101,7 +101,7 @@ Use search to find needed section.
 <body onload="loadLikesCount()" class="theme-adminflare main-menu-animated main-navbar-fixed">
 
 <s:if test="#session.login != true">
-		<jsp:forward page="login.jsp"></jsp:forward>
+		<jsp:forward page="newlogin.jsp"></jsp:forward>
 </s:if>
 
 <!-- hidden field to store current user's id -->

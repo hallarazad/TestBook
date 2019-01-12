@@ -100,7 +100,7 @@ Use search to find needed section.
 <s:hidden id="userid" value="%{#session.user_id}"></s:hidden>
 
 <s:if test="#session.login != true">
-		<jsp:forward page="login.jsp"></jsp:forward>
+		<jsp:forward page="newlogin.jsp"></jsp:forward>
 </s:if>
 
 <script>var init = [];</script>

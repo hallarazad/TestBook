@@ -13,7 +13,7 @@
 	<jsp:include page="test.jsp"></jsp:include>
 	
 	<s:if test="#session.login != 'true'">
-		<jsp:forward page="login.jsp"></jsp:forward>
+		<jsp:forward page="newlogin.jsp"></jsp:forward>
 	</s:if>
 	Success! ${sessionScope.fullname} 
 	
