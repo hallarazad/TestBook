@@ -2,9 +2,18 @@ import java.sql.*;
 
 public class DBConnection {
 	String driverClassName = "com.mysql.jdbc.Driver";
-	String connectionUrl = "jdbc:mysql://localhost:3306/testbook?useUnicode=yes&characterEncoding=UTF-8";
-	String dbuser = "root";
-	String dbpwd = "";
+	
+	// Use this for local connection
+	//String connectionUrl = "jdbc:mysql://localhost:3306/testbook?useUnicode=yes&characterEncoding=UTF-8";
+	
+	// Use this for Heroku connection
+	String connectionUrl = "jdbc:mysql://eu-cdbr-west-02.cleardb.net/heroku_17e7d75201deb87?reconnect=true&useUnicode=yes&characterEncoding=UTF-8";
+	
+	//String dbuser = "root";
+	String dbuser = "bc377c80fc6f77";
+	
+	//String dbpwd = "";
+	String dbpwd = "57642e0f";
 	
 	private static DBConnection dbConnection = null;
 	
