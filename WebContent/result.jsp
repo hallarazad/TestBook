@@ -30,7 +30,7 @@ Use search to find needed section.
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Blank - Pages - PixelAdmin</title>
+	<title>Result - TestBook</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
 	
@@ -100,23 +100,23 @@ Use search to find needed section.
 		
 		
 		<div class="note note-info col-md-4">
-				<h3 class="note-title">مڪمل</h4>
+				<h3 class="note-title">Total</h4>
 				<div class="integers"><s:property value="result.total_attempted"/></div>
 		</div>
 		
 		<div class="note note-success col-md-4">
-				<h3 class="note-title">صحيح</h4>
+				<h3 class="note-title">Correct</h4>
 				<div class="integers"><s:property value="result.correct_answers"/></div>
 		</div>
 		
 		<div class="note note-danger col-md-4">
-				<h3 class="note-title">غلط</h4>
+				<h3 class="note-title">Incorrect</h4>
 				<div class="integers"><s:property value="result.wrong_answers"/></div>
 		</div>
 		
 		
 		<div>
-			<div class="text-center text-lg text-semibold form-group-margin">ڪاميابي: %<s:property value="result.score"/></div>
+			<div class="text-center text-lg text-semibold form-group-margin">Success: %<s:property value="result.score"/></div>
 			<div class="progress progress-striped active"><div class="progress-bar progress-bar-success" style="width: <s:property value="result.score"/>%;"></div></div>
 		</div>
 		
